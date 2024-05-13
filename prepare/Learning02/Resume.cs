@@ -1,9 +1,9 @@
-class Resume(String name)
+public class Resume(String name)
 {
     String _name = name;
     List<Job> _jobs = new List<Job>();
 
-    void DisplayResume()
+    public void DisplayResume()
     {
         Console.WriteLine($"{_name}");
 
