@@ -7,6 +7,6 @@ public class Job (String company, String title, int start, int end)
 
     public void DisplayJob()
     {
-        Console.writeLine($"{_jobTitle \(_company\) _startYear-_endYear}");
+        Console.WriteLine($"{_jobTitle} ({_company}) {_startYear}-{_endYear}");
     }
 }
