@@ -1,10 +1,31 @@
 using System;
 
-public class Entry(string prompt, string text)
+public class Entry
 {
-    String _date = DateTime.Now.ToShortDateString(); //date = string form of creation date
-    String _prompt = prompt;
-    String _text = text;
+    String _date; //date = string form of creation date
+    String _prompt;
+    String _text;
+
+    public Entry(String prompt, String text = "", String date = "")
+    {
+        if (date == "")
+        {
+            _date = DateTime.Now.ToShortDateString();
+        }
+
+        Console.WriteLine(prompt);
+        _prompt = prompt;
+
+        if (text == "") {
+            Console.WriteLine("What do you want your entry to say?");
+
+            _text = Console.ReadLine();
+        }
+        else
+        {
+            _text = text;
+        }
+    }
 
     public String getText()
     {
