@@ -1,13 +1,13 @@
 public class Resume(String name)
 {
-    String _name = name;
-    List<Job> _jobs = new List<Job>();
+    private String _name = name;
+    public List<Job> _jobs = new List<Job>();
 
     public void DisplayResume()
     {
-        Console.WriteLine($"{_name}");
+        Console.WriteLine($"Name: {_name}\nJobs:");
 
-        for (var i = 0; i < _jobs.length; i ++)
+        for (var i = 0; i < _jobs.Count; i ++)
         {
             _jobs[i].DisplayJob();
         }

@@ -1,12 +1,12 @@
 public class Job (String company, String title, int start, int end) 
 {
-    String _company = company;
-    String _jobTitle = title;
-    int _startYear = start;
-    int _endYear = end;
+    private String _company = company;
+    private String _jobTitle = title;
+    private int _startYear = start;
+    private int _endYear = end;
 
     public void DisplayJob()
     {
-        Console.writeLine($"{_jobTitle \(_company\) _startYear-_endYear}");
+        Console.WriteLine($"{_jobTitle} ({_company}) {_startYear}-{_endYear}");
     }
 }
