@@ -34,27 +34,26 @@ public class Journal
         foreach (Entry e in _entries)
         {
             e.displayEntry();
+            Console.Write("\n");
         }
     }
     public void save(String filename)
     {
-        StreamWriter outFile = new StreamWriter(filename);
-
-        foreach (Entry e in _entries)
+        using (StreamWriter outFile = new StreamWriter(filename))
         {
-            outFile.WriteLine($"\\\\{e.toString()}");
+            foreach (Entry e in _entries)
+            {
+                outFile.WriteLine(e.toStringType());
+            }
         }
     }
     public void decodeFromFile(String filename)
     {
         string[] sourceText = System.IO.File.ReadAllLines(filename);
 
-        string[] textEntries = String.Join(" ", sourceText).Split("\\\\");
+        for (int i = 0; i < sourceText.Count(); i += 3) {
 
-        foreach (String entryText in textEntries) {
-            string[] parts = entryText.Split("\n");
-
-            _entries.Add(new Entry(parts[1], parts[2], parts[0]));
+            _entries.Add(new Entry(sourceText[i + 1], sourceText[i + 2], sourceText[i]));
         }
     }
 }

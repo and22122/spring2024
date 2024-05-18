@@ -12,6 +12,10 @@ public class Entry
         {
             _date = DateTime.Now.ToShortDateString();
         }
+        else
+        {
+            _date = date;
+        }
 
         Console.WriteLine(prompt);
         _prompt = prompt;
@@ -31,7 +35,7 @@ public class Entry
     {
         return _text;
     }
-    public String toString()
+    public String toStringType()
     {
         return $"{_date}\n{_prompt}\n{_text}";
     }
