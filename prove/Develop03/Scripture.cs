@@ -11,7 +11,7 @@ public class Scripture
         {
             Console.WriteLine("Please enter the text for the verse.");
             _verses.Add(new Verse(Console.ReadLine()));
-            Console.WriteLine("If you want to continue adding verses, press 'y'.");
+            Console.WriteLine("If you want to continue adding verses, press 'y' and then enter.");
             option = Console.ReadLine();
         } while(option.ToLower() == "y");
     }

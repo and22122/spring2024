@@ -4,12 +4,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Please define a scripture reference.");
         Scripture currentScripture = new Scripture();
 
         do {
             currentScripture.displayScripture();
-            Console.WriteLine("Press any key to continue.");
+            Console.WriteLine("Press enter to continue.");
             Console.ReadLine();
             currentScripture.hideRandom();
         } while(!currentScripture.scriptureIsHidden());
