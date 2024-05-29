@@ -3,9 +3,13 @@ using System.Diagnostics;
 public class Scripture
 {
     private List<Verse> _verses = new List<Verse>();
+    private String _reference;
 
     public Scripture()
     {
+        Console.WriteLine("Please enter the reference.");
+        _reference = Console.ReadLine();
+
         String option = "";
         do
         {
@@ -17,6 +21,8 @@ public class Scripture
     }
     public void displayScripture()
     {
+        Console.WriteLine(_reference);
+        
         foreach (Verse v in _verses)
         {
             Console.WriteLine(v.getVerse());
