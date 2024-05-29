@@ -13,5 +13,8 @@ class Program
             Console.ReadLine();
             currentScripture.hideRandom();
         } while(!currentScripture.scriptureIsHidden());
+
+        currentScripture.displayScripture();
+        Console.WriteLine("Done!");
     }
 }

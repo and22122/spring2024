@@ -2,7 +2,7 @@ using System.Diagnostics;
 
 public class Scripture
 {
-    private List<Verse> _verses;
+    private List<Verse> _verses = new List<Verse>();
 
     public Scripture()
     {
@@ -27,7 +27,14 @@ public class Scripture
     {
         Random randGen = new Random();
 
-        _verses[randGen.Next(1, _verses.Count())].hideWord();
+        int n;
+
+        do
+        {
+            n = randGen.Next(0, _verses.Count);
+        } while(_verses[n].verseIsHidden());
+
+        _verses[n].hideWord();
     }
 
     public bool scriptureIsHidden()

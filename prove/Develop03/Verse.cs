@@ -2,13 +2,14 @@ using System.Threading.Tasks.Dataflow;
 
 public class Verse
 {
-    private List<Word> _words;
+    private List<Word> _words = new List<Word>();
 
     public Verse(string text)
     {
         foreach (String s in text.Split(" "))
         {
-            _words.Add(new Word(s));
+            Word w = new Word(s);
+            _words.Add(w);
         }
     }
 
@@ -16,12 +17,25 @@ public class Verse
     {
         Random randGen = new Random();
 
-        _words[randGen.Next(1, _words.Count())].hide();
+        int n;
+
+        do
+        {
+            n = randGen.Next(0, _words.Count);
+        } while (_words[n].wordIsHidden());
+
+        _words[n].hide();
     }
 
     public String getVerse()
     {
-        return String.Join(" ", _words);
+        List<String> words = new List<String>();
+        foreach (Word w in _words)
+        {
+            words.Add(w.getText());
+        }
+
+        return String.Join(" ", words);
     }
 
     public bool verseIsHidden()
