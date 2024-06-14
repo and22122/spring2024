@@ -6,30 +6,31 @@ class Breathing : Activity
 
     public void boxBreathe()
     {
-        Console.WriteLine("Inhale for three seconds.");
+        Console.Write("Inhale for three seconds.");
         for (int i = 0; i < 3; i ++)
         {
             Thread.Sleep(1000);
             Console.Write(".");
         }
-        Console.WriteLine("Hold for three seconds.");
+        Console.Write("\nHold for three seconds.");
         for (int i = 0; i < 3; i ++)
         {
             Thread.Sleep(1000);
             Console.Write(".");
         }
-        Console.WriteLine("Exhale for three seconds.");
+        Console.Write("\nExhale for three seconds.");
         for (int i = 0; i < 3; i ++)
         {
             Thread.Sleep(1000);
             Console.Write(".");
         }
-        Console.WriteLine("Hold for three seconds.");
+        Console.Write("\nHold for three seconds.");
         for (int i = 0; i < 3; i ++)
         {
             Thread.Sleep(1000);
             Console.Write(".");
         }
+        Console.Write("\n");
     }
     public void run()
     {

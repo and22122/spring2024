@@ -9,7 +9,7 @@ class Program
         do
         {
             Console.WriteLine("What do you want to do?");
-            Console.WriteLine("- Breathing activity\n - Reflection activity\n - Listing activity\n - quit");
+            Console.WriteLine(" - Breathing activity\n - Reflection activity\n - Listing activity\n - Quit");
             Console.WriteLine("Please type the first word of the option you want to choose.");
             option = Console.ReadLine();
 
