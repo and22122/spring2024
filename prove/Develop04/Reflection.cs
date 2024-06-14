@@ -5,7 +5,7 @@ public class Reflection : Activity
     private Random _randGen = new Random();
     private List<string> _prompts = new List<string>();
     private List<string> _questions = new List<string>();
-    public Reflection(int duration) : base("Reflection Activity", duration, "This activity invites you to reflect on your life. Think about what you can learn from your experiences.")
+    public Reflection() : base("Reflection Activity", "This activity invites you to reflect on your life. Think about what you can learn from your experiences.")
     {
         _prompts.Add("");
     }

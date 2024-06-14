@@ -5,7 +5,7 @@ public class Listing : Activity
     private List<string> _items = new List<string>();
     private Random randGen = new Random();
 
-    public Listing(int duration) : base("Listing Activity", duration, "This activity invites you to list examples from your life that relate to a given prompt.")
+    public Listing() : base("Listing Activity", "This activity invites you to list examples from your life that relate to a given prompt.")
     {
         _startTime = DateTime.Now;
     }

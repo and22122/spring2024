@@ -1,8 +1,7 @@
 class Breathing : Activity
 {
-    public Breathing(int duration, int timer) : base("Breathing Activity", duration, "This activity helps you relax by controlling your breathing. Just focus on breathing.")
+    public Breathing() : base("Breathing Activity", "This activity helps you relax by controlling your breathing. Just focus on breathing.")
     {
-        _timer = timer;
     }
 
     public void boxBreathe()
