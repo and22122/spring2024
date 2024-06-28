@@ -4,6 +4,9 @@ public class SimpleGoal : Goal
     public SimpleGoal(int pts, String desc) : base(pts, desc)
     {
     }
+    public SimpleGoal(int pts, String desc, int prog) : base(pts, desc, prog)
+    {
+    }
 
     public override void update()
     {
@@ -24,5 +27,10 @@ public class SimpleGoal : Goal
         else {
             Console.WriteLine($"- {_description}");
         }
+    }
+
+    public override String toStringType()
+    {
+        return $"\"Simple\" \"{_points}\" \"{_description}\" \"{_progress}\"\n";
     }
 }

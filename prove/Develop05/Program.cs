@@ -12,6 +12,15 @@ class Program
         Console.WriteLine(prompt);
         return int.Parse(Console.ReadLine());
     }
+    static void save (String filename, List<Goal> Goals)
+    {
+        using (StreamWriter outFile = new StreamWriter(filename))
+        {
+            foreach (Goal g in Goals) {
+                outFile.WriteLine(g.toStringType());
+            }
+        }
+    }
     static void Main(string[] args)
     {
         String option = "";
@@ -67,12 +76,37 @@ class Program
                     Console.WriteLine("What file do you want to open?");
                     String filename = Console.ReadLine();
 
+                    save(filename, goals);
+
                     break;
                 case "L":
                     Console.WriteLine("What file do you want to open?");
-                    String filename = Console.ReadLine();
+                    String targetFile = Console.ReadLine();
+                    
+                    string[] sourceText = System.IO.File.ReadAllLines(targetFile);
 
+                    goals = new List<Goal>();
 
+                    for (int i = 0; i < sourceText.Count(); i ++)
+                    {
+                        string[] line = sourceText[i].Split(" ");
+
+                        switch (line[0])
+                        {
+                            case "Simple":
+                                goals.Add(new SimpleGoal(int.Parse(line[0]), line[1], int.Parse(line[2])));
+                                break;
+                            case "Eternal":
+                                goals.Add(new EternalGoal(int.Parse(line[0]), line[1], int.Parse(line[2])));
+                                break;
+                            case "Checklist":
+                                goals.Add(new ChecklistGoal(int.Parse(line[0]), line[1], int.Parse(line[2]), int.Parse(line[3]), int.Parse(line[4])));
+                                break;
+                            default:
+                                Console.WriteLine("Invalid value. Please abort.");
+                                break;
+                        }
+                    }
                     break;
                 case "Q":
                     Console.WriteLine("Ending program.");

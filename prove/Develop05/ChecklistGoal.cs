@@ -9,6 +9,11 @@ public class ChecklistGoal : Goal
         _targetTimes = target;
         _bonus = bonus;
     }
+    public ChecklistGoal(int pts, String desc, int prog, int target, int bonus) : base(pts, desc, prog)
+    {
+        _targetTimes = target;
+        _bonus = bonus;
+    }
 
     public override void update()
     {
@@ -36,5 +41,10 @@ public class ChecklistGoal : Goal
         else {
             Console.WriteLine($"- {_description}: {scoreUp} points (completed {_progress}/{_targetTimes} times for {_points} points each)");
         }
+    }
+
+    public override string toStringType()
+    {
+        return $"\"Checklist\" \"{_points}\" \"{_description}\" \"{_progress}\" \"{_targetTimes}\" \"{_bonus}\"";
     }
 }

@@ -3,6 +3,9 @@ public class EternalGoal : Goal
     public EternalGoal(int pts, String desc) : base(pts, desc)
     {
     }
+    public EternalGoal(int pts, String desc, int prog) : base(pts, desc, prog)
+    {
+    }
 
     public override void update()
     {
@@ -24,5 +27,10 @@ public class EternalGoal : Goal
         {
             Console.WriteLine($"+ {_description}: {scoreUp()} points ({_points} points each)");
         }
+    }
+
+    public override string toStringType()
+    {
+        return $"\"Eternal\" \"{_points}\" \"{_description}\" \"{_progress}\"";
     }
 }
