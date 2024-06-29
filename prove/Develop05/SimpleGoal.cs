@@ -31,6 +31,6 @@ public class SimpleGoal : Goal
 
     public override String toStringType()
     {
-        return $"\"Simple\" \"{_points}\" \"{_description}\" \"{_progress}\"\n";
+        return $"Simple\\{_points}\\{_description}\\{_progress}";
     }
 }

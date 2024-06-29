@@ -31,6 +31,6 @@ public class EternalGoal : Goal
 
     public override string toStringType()
     {
-        return $"\"Eternal\" \"{_points}\" \"{_description}\" \"{_progress}\"";
+        return $"Eternal\\{_points}\\{_description}\\{_progress}";
     }
 }

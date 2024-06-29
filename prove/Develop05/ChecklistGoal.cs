@@ -36,15 +36,15 @@ public class ChecklistGoal : Goal
     {
         if (_completed)
         {
-            Console.WriteLine($"+ {_description}: {scoreUp} points ({_targetTimes} x {_points} points + {_bonus} points)");
+            Console.WriteLine($"+ {_description}: {scoreUp()} points ({_targetTimes} x {_points} points + {_bonus} points)");
         }
         else {
-            Console.WriteLine($"- {_description}: {scoreUp} points (completed {_progress}/{_targetTimes} times for {_points} points each)");
+            Console.WriteLine($"- {_description}: {scoreUp()} points (completed {_progress}/{_targetTimes} times for {_points} points each)");
         }
     }
 
     public override string toStringType()
     {
-        return $"\"Checklist\" \"{_points}\" \"{_description}\" \"{_progress}\" \"{_targetTimes}\" \"{_bonus}\"";
+        return $"Checklist\\{_points}\\{_description}\\{_progress}\\{_targetTimes}\\{_bonus}";
     }
 }

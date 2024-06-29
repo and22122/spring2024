@@ -12,22 +12,22 @@ class Program
         Console.WriteLine(prompt);
         return int.Parse(Console.ReadLine());
     }
-    static void save (String filename, List<Goal> Goals)
+    static void save (String filename, List<Goal> goalList)
     {
         using (StreamWriter outFile = new StreamWriter(filename))
         {
-            foreach (Goal g in Goals) {
+            foreach (Goal g in goalList) {
                 outFile.WriteLine(g.toStringType());
             }
         }
     }
     static void Main(string[] args)
     {
+        List<Goal> goals = new List<Goal>();
         String option = "";
 
         do
         {
-            List<Goal> goals = new List<Goal>();
             Console.WriteLine("What do you want to do? (please type a letter)");
             Console.WriteLine("- [C]reate a new goal");
             Console.WriteLine("- [U]pdate a goal");
@@ -40,7 +40,7 @@ class Program
 
             switch (option)
             {
-                case "C":
+                case "c":
                     Console.WriteLine("Which type of goal do you want to make? Please type \"Simple\", \"Eternal\", or \"Checklist.\"");
                     String goalType = Console.ReadLine().ToLower();
 
@@ -53,7 +53,7 @@ class Program
                             goals.Add(new EternalGoal(GetInt("How many points is the goal worth?"), GetInput("What should the task be?")));
                             break;
                         case "checklist":
-                            goals.Add(new ChecklistGoal(GetInt("How many points is the goal worth"), GetInput("What should the task be?"), GetInt("How many times does the goal need to be completed?"), GetInt("How many points is the end bonus worth?")));
+                            goals.Add(new ChecklistGoal(GetInt("How many points is the goal worth?"), GetInput("What should the task be?"), GetInt("How many times does the goal need to be completed?"), GetInt("How many points is the end bonus worth?")));
                             break;
                         default:
                             Console.WriteLine("Invalid input.");
@@ -61,25 +61,25 @@ class Program
                     }
 
                     break;
-                case "U":
+                case "u":
                     Console.WriteLine($"Which goal do you want to update? (Please type a whole number from 1 to {goals.Count})");
                     int goalNum = int.Parse(Console.ReadLine());
-                    goals[goalNum].update();
+                    goals[goalNum - 1].update();
                     break;
-                case "D":
-                    foreach (Goal g in goals)
+                case "d":
+                    for (int i = 0; i < goals.Count(); i ++)
                     {
-                        g.display();
+                        goals[i].display();
                     }
                     break;
-                case "S":
+                case "s":
                     Console.WriteLine("What file do you want to open?");
                     String filename = Console.ReadLine();
 
                     save(filename, goals);
 
                     break;
-                case "L":
+                case "l":
                     Console.WriteLine("What file do you want to open?");
                     String targetFile = Console.ReadLine();
                     
@@ -89,18 +89,18 @@ class Program
 
                     for (int i = 0; i < sourceText.Count(); i ++)
                     {
-                        string[] line = sourceText[i].Split(" ");
+                        string[] line = sourceText[i].Split("\\");
 
                         switch (line[0])
                         {
                             case "Simple":
-                                goals.Add(new SimpleGoal(int.Parse(line[0]), line[1], int.Parse(line[2])));
+                                goals.Add(new SimpleGoal(int.Parse(line[1]), line[2], int.Parse(line[3])));
                                 break;
                             case "Eternal":
-                                goals.Add(new EternalGoal(int.Parse(line[0]), line[1], int.Parse(line[2])));
+                                goals.Add(new EternalGoal(int.Parse(line[1]), line[2], int.Parse(line[3])));
                                 break;
                             case "Checklist":
-                                goals.Add(new ChecklistGoal(int.Parse(line[0]), line[1], int.Parse(line[2]), int.Parse(line[3]), int.Parse(line[4])));
+                                goals.Add(new ChecklistGoal(int.Parse(line[1]), line[2], int.Parse(line[3]), int.Parse(line[4]), int.Parse(line[5])));
                                 break;
                             default:
                                 Console.WriteLine("Invalid value. Please abort.");
@@ -108,7 +108,7 @@ class Program
                         }
                     }
                     break;
-                case "Q":
+                case "q":
                     Console.WriteLine("Ending program.");
                     break;
                 default:
