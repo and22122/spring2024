@@ -29,11 +29,11 @@ class Program
         videos[3]._comments.Add(new Comment("R2nd0mN00b346", "Please someone delete this off the face of the earth"));
         videos[3]._comments.Add(new Comment("B1gg3stTr0113v3r", "This vidweo sucks shar it with all hyor friends"));
 
-        videos[2]._comments[2] = new Comment("Admin", "This comment was deleted.");
+        videos[2]._comments[1] = new Comment("Admin", "This comment was deleted.");
 
         foreach (Video v in videos)
         {
-            Console.WriteLine($"{v._title}\nPosted by {v._user}\n{v._duration} seconds long\n\n{v.countComments} comments:");
+            Console.WriteLine($"\n\n{v._title}\nPosted by {v._user}\n{v._duration} seconds long\n\n{v.countComments()} comments:");
 
             foreach (Comment c in v._comments)
             {
