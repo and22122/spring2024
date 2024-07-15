@@ -1,6 +1,6 @@
 public class Reception : Event
 {
-    private List<String> _attendees;
+    private List<String> _attendees = new List<String>();
     private int _capacity;
     private String _rsvpEmail;
 
