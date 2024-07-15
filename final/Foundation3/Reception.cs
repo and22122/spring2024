@@ -4,15 +4,10 @@ public class Reception : Event
     private int _capacity;
     private String _rsvpEmail;
 
-    public Reception(String title, String desc, String ed, String et, String addr, int cap, String rsvp) : base(title, desc, ed, et, addr)
+    public Reception(String title, String desc, String ed, String et, String addr, String rsvp) : base(title, desc, ed, et, addr)
     {
-        _capacity = cap;
+        _capacity = 0;
         _rsvpEmail = rsvp;
-    }
-
-    public void getRsvpInfo()
-    {
-
     }
 
     public void rsvp(String name)
@@ -21,17 +16,12 @@ public class Reception : Event
         _capacity ++;
     }
 
-    public String getShortDetails()
-    {
-        return $"{_title}:\n{_desc}\n{_eventDate} at {_eventTime}\n{_addr}";
-    }
-
-    public String getFullDetails()
+    public override String getFullDetails()
     {
         return $"{getShortDetails()}\n{_rsvpEmail}\nCapacity: {_capacity}";
     }
 
-    public String getShortDesc()
+    public override String getShortDesc()
     {
         return $"Reception:\n{_title}\n{_eventDate}";
     }

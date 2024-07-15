@@ -12,17 +12,12 @@ public class Outdoors : Event
         return _weather;
     }
 
-    public String getShortDetails()
-    {
-        return $"{_title}:\n{_desc}\n{_eventDate} at {_eventTime}\n{_addr}";
-    }
-
-    public String getFullDetails()
+    public override String getFullDetails()
     {
         return $"{getShortDetails()}\nWeather:\n{_weather}";
     }
 
-    public String getShortDesc()
+    public override String getShortDesc()
     {
         return $"Outdoor event:\n{_title}\n{_eventDate}";
     }

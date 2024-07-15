@@ -1,4 +1,4 @@
-public class Event
+public abstract class Event
 {
     protected String _title;
     protected String _desc;
@@ -14,4 +14,12 @@ public class Event
         _eventTime = eventTime;
         _addr = addr;
     }
+
+    public String getShortDetails()
+    {
+        return $"{_title}:\n{_desc}\n{_eventDate} at {_eventTime}\n{_addr}";
+    }
+
+    public abstract String getFullDetails();
+    public abstract String getShortDesc();
 }
