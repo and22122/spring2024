@@ -1,4 +1,4 @@
-public abstract class Exercise:
+public abstract class Exercise
 {
     protected float _distance;
     protected int _duration;
