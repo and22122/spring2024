@@ -23,4 +23,9 @@ public class Swimming : Exercise
     {
         return 60 / getSpeed();
     }
+
+    public void setLaps(int n)
+    {
+        _laps = n;
+    }
 }
