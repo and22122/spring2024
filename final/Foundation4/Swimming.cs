@@ -1,11 +1,11 @@
 public class Swimming : Exercise
 {
     private int _laps;
-    public Swimming(String et, String d, int l) : base(et, d)
+    public Swimming(String d, int l) : base("Swimming", d)
     {
         _laps = l;
     }
-    public Swimming(float di, int du, String et, String d, int l) : base(di, du, et, d)
+    public Swimming(float di, int du, String d, int l) : base(di, du, "Swimming", d)
     {
         Console.WriteLine("Error: You cannot instantiate Swimming type objects this way.");
         throw new ArgumentException();
