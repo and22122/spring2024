@@ -1,13 +1,13 @@
 public class Swimming : Exercise
 {
     private int _laps;
-    public Swimming(String d, int l) : base("Swimming", d)
+    public Swimming(int du, String d, int l) : base(0, du, "Swimming", d)
     {
         _laps = l;
     }
     public Swimming(float di, int du, String d, int l) : base(di, du, "Swimming", d)
     {
-        Console.WriteLine("Error: You cannot instantiate Swimming type objects this way.");
+        Console.WriteLine("Error: Swimming type objects take a lap integer, not a distance float");
         throw new ArgumentException();
     }
     public override float getDistance()

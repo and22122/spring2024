@@ -34,7 +34,7 @@ public abstract class Exercise
     }
     public virtual String getSummary()
     {
-        return $"{_date} {_eType} ({_duration})- Distance {_distance} km, Speed: {getSpeed()} kph, Pace: {getPace()} min per km";
+        return $"{_date} {_eType} ({_duration})- Distance {getDistance()} km, Speed: {getSpeed()} kph, Pace: {getPace()} min per km";
     }
     public void setDist(float n)
     {
